@@ -1,3 +1,7 @@
+# This configuration file allows the jupyter notebooks to be run on mybinder.org
+# Ideally this file would be under `/MNIST` folder but binder demands this file be 
+# in the path `/binder`. 
+
 name: mnist-class-example
 channels:
   - conda-forge
