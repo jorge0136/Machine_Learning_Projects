@@ -1,13 +1,25 @@
 FROM jupyter/scipy-notebook:abdb27a6dfbb
 
-MAINTAINER Gaarv <@Gaarv1911>
-
 USER root
 
 # bash instead of dash to use source
 RUN ln -snf /bin/bash /bin/sh
 
-USER jovyan
+# Make sure the contents of our repo are in ${HOME}
+COPY . ${HOME}
+RUN chown -R ${NB_UID} ${HOME}
+USER ${NB_USER}
+
+ARG NB_USER=jovyan
+ARG NB_UID=1000
+ENV USER ${NB_USER}
+ENV NB_UID ${NB_UID}
+ENV HOME /home/${NB_USER}
+
+RUN adduser --disabled-password \
+    --gecos "Default user" \
+    --uid ${NB_UID} \
+    ${NB_USER}
 
 RUN pip install --upgrade tensorflow \
  && pip install --upgrade --no-deps git+git://github.com/fchollet/keras.git
