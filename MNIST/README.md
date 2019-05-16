@@ -1,5 +1,9 @@
 # MNIST
 
+## Run The Project
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jorge0136/Machine_Learning_Projects/binder?filepath=MNIST%2Fmnist_class_example.ipynb)
+
 ## Objective
 
 This repo contains code for MNIST handwritten classification.
