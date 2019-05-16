@@ -2,7 +2,9 @@ name: mnist-class-example
 channels:
   - conda-forge
 dependencies:
-  - keras
   - numpy
-  - matplotlib
-  - tensorflow
+  - pip
+  - pip:
+    - keras
+    - tensorflow
+    - matplotlib
